@@ -3,13 +3,16 @@ import axios from 'axios';
 import { useUser } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import '../assets/login.css'; 
+// 
+
+const baseURL = process.env.REACT_APP_BASE_URL
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const { dispatch } = useUser();
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
+    password: '', 
   });
 
   const handleInputChange = (e) => {
@@ -19,7 +22,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/users/login', formData);
+      const response = await axios.post(`${baseURL}/login`, formData);
 
       if (response.status === 200) {
         const data = response.data;

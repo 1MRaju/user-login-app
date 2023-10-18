@@ -4,6 +4,8 @@ import { useUser } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import '../assets/register.css'; 
 
+const baseURL = process.env.REACT_APP_BASE_URL
+
 const RegisterForm = () => {
   const navigate = useNavigate();
   const { dispatch } = useUser();
@@ -23,7 +25,7 @@ const RegisterForm = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/users/register', formData);
+      const response = await axios.post(`${baseURL}/register`, formData);
 
       if (response.status === 200) {
         const data = response.data;
