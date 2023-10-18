@@ -4,7 +4,7 @@ import { useUser } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import '../assets/register.css'; 
 
-const baseURL = process.env.REACT_APP_BASE_URL
+// const baseURL = process.env.REACT_APP_BASE_URL
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const RegisterForm = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${baseURL}/register`, formData);
+      const response = await axios.post(`https://login-and-registration-backend-gyo7.onrender.com/register`, formData);
 
       if (response.status === 200) {
         const data = response.data;

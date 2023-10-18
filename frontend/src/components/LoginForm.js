@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../assets/login.css'; 
 // 
 
-const baseURL = process.env.REACT_APP_BASE_URL
+// const baseURL = process.env.REACT_APP_BASE_URL
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${baseURL}/login`, formData);
+      const response = await axios.post(`https://login-and-registration-backend-gyo7.onrender.com/login`, formData);
 
       if (response.status === 200) {
         const data = response.data;

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import '../assets/table.css';
 
-const baseURL = process.env.REACT_APP_BASE_URL
+// const baseURL = process.env.REACT_APP_BASE_URL
 
 function TableContent() {
   const { state, dispatch } = useUser();
@@ -13,7 +13,7 @@ function TableContent() {
   const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    axios.get(`${baseURL}/allusers`)
+    axios.get(`https://login-and-registration-backend-gyo7.onrender.com/allusers`)
       .then((response) => {
         dispatch({ type: 'SET_USERS', payload: response.data });
         setLoading(false); 
@@ -31,7 +31,7 @@ function TableContent() {
 
   const confirmDelete = () => {
     if (deleteConfirmation) {
-      axios.delete(`${baseURL}/${deleteConfirmation}`)
+      axios.delete(`https://login-and-registration-backend-gyo7.onrender.com/${deleteConfirmation}`)
         .then(() => {
           dispatch({ type: 'REMOVE_USER', payload: deleteConfirmation });
           setDeleteConfirmation(null);

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const UserContext = createContext();
 
-const baseURL = process.env.REACT_APP_BASE_URL
+// const baseURL = process.env.REACT_APP_BASE_URL
 
 const initialState = {
   users: [], 
@@ -59,7 +59,7 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`${baseURL}/allusers`); // Replace with your API endpoint
+        const response = await axios.get(`https://login-and-registration-backend-gyo7.onrender.com/allusers`); // Replace with your API endpoint
         dispatch({ type: 'SET_USERS', payload: response.data });
       } catch (error) {
         console.error('Error fetching users:', error);
