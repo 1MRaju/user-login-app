@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const secretKey = process.env.JWT_SECRET;
 
-//Register user
+//Register user      
 const registerUser = async (req, res) => {
     const {username, email,dateOfBirth, age, city, password} = req.body;
     try {
