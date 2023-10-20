@@ -13,7 +13,7 @@ function TableContent() {
   const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/users/allusers`)
+    axios.get(`https://user-login-registration-system.onrender.com/allusers`)
       .then((response) => {
         dispatch({ type: 'SET_USERS', payload: response.data });
         setLoading(false); 
@@ -31,7 +31,7 @@ function TableContent() {
 
   const confirmDelete = () => {
     if (deleteConfirmation) {
-      axios.delete(`http://localhost:8080/api/users/${deleteConfirmation}`)
+      axios.delete(`https://user-login-registration-system.onrender.com/${deleteConfirmation}`)
         .then(() => {
           dispatch({ type: 'REMOVE_USER', payload: deleteConfirmation });
           setDeleteConfirmation(null);

@@ -25,7 +25,7 @@ const RegisterForm = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8080/api/users/register`, formData);
+      const response = await axios.post(`https://user-login-registration-system.onrender.com/register`, formData);
 
       if (response.status === 200) {
         const data = response.data;

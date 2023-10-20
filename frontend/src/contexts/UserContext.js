@@ -59,7 +59,7 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/users/allusers`); // Replace with your API endpoint
+        const response = await axios.get(`https://user-login-registration-system.onrender.com/allusers`); // Replace with your API endpoint
         dispatch({ type: 'SET_USERS', payload: response.data });
       } catch (error) {
         console.error('Error fetching users:', error);
